@@ -53,7 +53,7 @@ nav {
     color: white;
 }
 
-/* HERO SECTION */
+/* HERO SECTION - PARALLAX ETKİSİ EKLENDİ */
 .hero {
     position: relative;
     height: 100vh;
@@ -64,7 +64,7 @@ nav {
     background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('hero.jpeg');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
+    background-attachment: fixed; /* Arka planın sabit kalmasını sağlar */
 }
 
 .hero-title {
@@ -86,11 +86,12 @@ nav {
     text-align: center;
 }
 
-/* SCROLL ANİMASYONU (REVEAL) */
+/* SCROLL ANİMASYONU (REVEAL) - CUBIC BEZIER İLE AKICILIK ARTIRILDI */
 .reveal {
     opacity: 0;
-    transform: translateY(40px);
-    transition: all 1.2s ease-out;
+    transform: translateY(60px); /* Başlangıç mesafesi biraz artırıldı */
+    transition: all 1.4s cubic-bezier(0.16, 1, 0.3, 1); /* Daha profesyonel yavaşlama eğrisi */
+    will-change: transform, opacity;
 }
 
 .reveal.active {
@@ -100,7 +101,7 @@ nav {
 
 /* GENEL BÖLÜM TASARIMI */
 section {
-    padding: 140px 10%;
+    padding: 160px 10%; /* Bölümler arası boşluk Çağla'nın sitesindeki gibi artırıldı */
     display: flex;
     justify-content: center;
 }
@@ -112,48 +113,3 @@ section {
 
 h2 {
     font-size: 2.2rem;
-    font-weight: 200;
-    margin-bottom: 40px;
-    border-bottom: 1px solid #27272a;
-    padding-bottom: 15px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: white;
-}
-
-p {
-    color: #d4d4d8; /* Yazıların koyu zeminde görünmesi için renk güncellendi */
-    line-height: 1.8;
-    font-size: 1.1rem;
-    margin-bottom: 20px;
-}
-
-/* MOUSE SCROLL ICON */
-.scroll-icon {
-    position: absolute;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 26px;
-    height: 44px;
-    border: 2px solid rgba(255,255,255,0.2);
-    border-radius: 20px;
-}
-
-.scroll-icon::before {
-    content: '';
-    width: 4px;
-    height: 8px;
-    background: white;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 10px;
-    border-radius: 2px;
-    animation: scrollMove 2s infinite;
-}
-
-@keyframes scrollMove {
-    0% { opacity: 1; top: 10px; }
-    100% { opacity: 0; top: 28px; }
-}
