@@ -4,105 +4,108 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gülcesu Kahraman | Industrial Designer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    
     <style>
-        /* 1. TEMEL SIFIRLAMA */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body, html { 
+            width: 100%; height: 100%; background-color: #09090b; 
+            color: white; font-family: 'Inter', sans-serif; scroll-behavior: smooth;
         }
 
-        body, html {
-            width: 100%;
-            height: 100%;
-            background-color: #09090b;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            color: white;
-            overflow-x: hidden;
+        /* 1. NAVİGASYON (HOME, EXPERIENCE vs.) */
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 30px 10%; background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
         }
+        .logo { font-weight: 300; letter-spacing: 0.2em; font-size: 1.2rem; }
+        .nav-links { display: flex; gap: 40px; list-style: none; }
+        .nav-links a { 
+            color: #a1a1aa; text-decoration: none; font-size: 0.9rem; 
+            text-transform: uppercase; letter-spacing: 0.1em; transition: 0.3s;
+        }
+        .nav-links a:hover { color: white; }
 
-        /* 2. ANA GİRİŞ (HERO) BÖLÜMÜ */
+        /* 2. HERO SECTION */
         .hero {
-            position: relative;
-            height: 100vh;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            /* ARKA PLAN RESMİ BURADA */
+            height: 100vh; width: 100%; display: flex; align-items: center; justify-content: center;
             background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('hero.jpeg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            background-size: cover; background-position: center; background-attachment: fixed;
         }
+        .hero-content { text-align: center; }
+        .hero-title { 
+            font-size: clamp(2rem, 8vw, 5.5rem); font-weight: 200; 
+            letter-spacing: 0.3em; margin-bottom: 15px;
+        }
+        .hero-subtitle { color: #a1a1aa; letter-spacing: 0.4em; text-transform: uppercase; font-size: 1.1rem; }
 
-        /* 3. İSİM VE BAŞLIK */
-        .hero-content {
-            text-align: center;
-            padding: 0 20px;
-        }
+        /* 3. SCROLL ANIMATION (Aşağı Kaydırırken Görünme) */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 1s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
 
-        .hero-title {
-            /* clamp(en_küçük, ekran_oranı, en_büyük) */
-            font-size: clamp(1.5rem, 8vw, 4.5rem); 
-            font-weight: 200;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            margin-bottom: 0.5rem;
-        }
+        /* 4. SECTIONS (EXPERIENCE, ABOUT) */
+        section { padding: 120px 10%; min-height: 80vh; }
+        h2 { font-size: 2.5rem; font-weight: 200; margin-bottom: 50px; border-bottom: 1px solid #27272a; padding-bottom: 10px; }
+        p { color: #a1a1aa; line-height: 1.8; font-size: 1.1rem; max-width: 800px; }
 
-        .hero-subtitle {
-            font-size: clamp(0.8rem, 2vw, 1.2rem);
-            color: #a1a1aa;
-            letter-spacing: 0.4em;
-            text-transform: uppercase;
-            font-weight: 300;
+        /* Mouse Scroll Icon */
+        .scroll-icon {
+            position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
+            width: 25px; height: 45px; border: 2px solid rgba(255,255,255,0.3); border-radius: 20px;
         }
-
-        /* 4. HAKKIMDA BÖLÜMÜ (AŞAĞI KAYDIRINCA ÇIKAR) */
-        .about {
-            padding: 80px 20px;
-            max-width: 800px;
-            margin: 0 auto;
+        .scroll-icon::before {
+            content: ''; width: 4px; height: 8px; background: white; position: absolute;
+            left: 50%; transform: translateX(-50%); top: 10px; border-radius: 2px; animation: scrollAnim 2s infinite;
         }
-
-        .about h2 {
-            font-size: 2rem;
-            font-weight: 300;
-            margin-bottom: 2rem;
-            border-bottom: 1px solid #27272a;
-            padding-bottom: 0.5rem;
-        }
-
-        .about p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #d4d4d8;
-            margin-bottom: 1.5rem;
-        }
+        @keyframes scrollAnim { 0% { opacity: 1; top: 10px; } 100% { opacity: 0; top: 25px; } }
     </style>
 </head>
 <body>
 
+    <nav>
+        <div class="logo">GK</div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
     <section class="hero">
-        <div class="hero-content">
+        <div class="hero-content animate__animated animate__fadeIn">
             <h1 class="hero-title">GÜLCESU KAHRAMAN</h1>
             <p class="hero-subtitle">Industrial Designer</p>
         </div>
+        <div class="scroll-icon"></div>
     </section>
 
-    <section class="about">
+    <section id="experience" class="reveal">
+        <h2>Experience</h2>
+        <p>Industrial Design Project Management, 3D Rendering, and UI/UX Strategy.</p>
+        </section>
+
+    <section id="about" class="reveal">
         <h2>About</h2>
-        <p>
-            Welcome to my portfolio. I am an industrial designer with a passion for creating
-            innovative and functional designs that blend aesthetics with practicality.
-        </p>
-        <p>
-            My work focuses on user-centered design principles and sustainable solutions, 
-            bringing ideas to life through a comprehensive understanding of the design process.
-        </p>
+        <p>I focus on creating innovative solutions that blend aesthetics with functionality. My process involves detailed 3D modeling and a deep understanding of material textures.</p>
     </section>
+
+    <script>
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+    </script>
 
 </body>
 </html>
