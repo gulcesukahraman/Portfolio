@@ -28,26 +28,22 @@
         <div class="scroll-icon"></div>
     </section>
 
-   <section id="about" class="reveal active">
+    <section id="about" class="reveal">
         <div class="container">
             <h2>ABOUT</h2>
-            
-            <p style="margin-bottom: 25px; color: #a1a1aa;">
+            <p style="margin-bottom: 25px;">
                 I graduated from the Department of Industrial Design at Yeditepe University. Through internships at Baykar Technology and GEMAK Group, I gained experience in product development, manufacturing processes, and production-oriented design. 
             </p>
-            
-            <p style="margin-bottom: 25px; color: #a1a1aa;">
+            <p style="margin-bottom: 25px;">
                 Following this, I worked as a creative director in the textile industry, acquiring knowledge in website design and e-commerce. Digital design and branding projects further strengthened my multifaceted perspective.
             </p>
-
-            <p style="color: #a1a1aa;">
+            <p>
                 With my creative and analytical approach, I aim to develop innovative products that combine technology, functionality, and aesthetics, and to create value within a dynamic team.
             </p>
         </div>
     </section>
 
-
-    <section id="contact" class="reveal active">
+    <section id="contact" class="reveal">
         <div class="container">
             <h2>Contact</h2>
             <p>Let's collaborate on your next design project.</p>
@@ -65,17 +61,17 @@
             for (var i = 0; i < reveals.length; i++) {
                 var windowHeight = window.innerHeight;
                 var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 100; // Görünürlük eşiğini biraz düşürdüm
+                var elementVisible = 150; 
                 if (elementTop < windowHeight - elementVisible) {
                     reveals[i].classList.add("active");
                 }
             }
         }
         window.addEventListener("scroll", reveal);
-        // Sayfa yüklendiğinde çalışması için zamanlayıcı ekledim
         window.onload = reveal;
-        reveal();
     </script>
 
+</body>
+</html>
 </body>
 </html>
