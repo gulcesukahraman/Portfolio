@@ -1,4 +1,4 @@
-/* Her şeyi sıfırla ve ekranı kapla */
+/* 1. TEMEL SIFIRLAMA */
 * {
     margin: 0;
     padding: 0;
@@ -8,43 +8,69 @@
 body, html {
     width: 100%;
     height: 100%;
-    background-color: #09090b; /* Resim yüklenene kadar siyah kalsın */
-    font-family: 'Inter', -apple-system, sans-serif;
+    background-color: #09090b;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: white;
     overflow-x: hidden;
 }
 
-/* Arka Plan ve Ana Bölüm */
-.hero-bg {
+/* 2. ANA GİRİŞ (HERO) BÖLÜMÜ */
+.hero {
+    position: relative;
     height: 100vh;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* Görseli buradan çekiyoruz */
+    /* ARKA PLAN RESMİ BURADA - Adının hero.jpeg olduğundan emin ol */
     background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('hero.jpeg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
-/* İsim: Mobilde 18px gibi küçülmez ama ekran dışına da taşmaz */
-.hero-title {
-    color: white;
-    font-size: clamp(2rem, 8vw, 6rem); /* En az 2rem, en fazla 6rem; arada ekranla beraber büyür */
-    font-weight: 300;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
+/* 3. İSİM VE BAŞLIK */
+.hero-content {
     text-align: center;
-    padding: 0 20px; /* Kenarlardan biraz pay bırakalım */
+    padding: 0 20px;
 }
 
-/* Meslek Başlığı */
+.hero-title {
+    font-size: clamp(1.5rem, 8vw, 4.5rem); 
+    font-weight: 200;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
 .hero-subtitle {
+    font-size: clamp(0.8rem, 2vw, 1.2rem);
     color: #a1a1aa;
-    font-size: clamp(1rem, 2vw, 1.5rem);
-    letter-spacing: 0.3em;
-    margin-top: 20px;
+    letter-spacing: 0.4em;
     text-transform: uppercase;
     font-weight: 300;
+}
+
+/* 4. HAKKIMDA BÖLÜMÜ */
+.about {
+    padding: 80px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about h2 {
+    font-size: 2rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #27272a;
+    padding-bottom: 0.5rem;
+}
+
+.about p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #d4d4d8;
+    margin-bottom: 1.5rem;
+}
 }
