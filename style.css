@@ -6,7 +6,6 @@
 
 body, html {
     width: 100%;
-    min-height: 100vh;
     background-color: #09090b;
     color: white;
     font-family: 'Inter', sans-serif;
@@ -22,8 +21,8 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 35px 10%;
-    background: linear-gradient(to bottom, rgba(9, 9, 11, 0.9), transparent);
+    padding: 30px 10%;
+    background: transparent;
 }
 
 .logo {
@@ -34,38 +33,34 @@ nav {
 
 .nav-links {
     display: flex;
-    gap: 40px;
+    gap: 30px;
     list-style: none;
 }
 
 .nav-links a {
-    color: #71717a;
+    color: #a1a1aa;
     text-decoration: none;
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     text-transform: uppercase;
-    letter-spacing: 0.2em;
-    transition: color 0.4s ease;
+    letter-spacing: 0.1em;
+    transition: color 0.3s ease;
 }
 
 .nav-links a:hover { color: white; }
 
 .hero {
-    position: relative;
     height: 100vh;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('hero.jpeg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)), url('hero.jpeg') center/cover no-repeat;
 }
 
 .hero-title {
-    font-size: clamp(2.5rem, 7vw, 4.5rem);
+    font-size: clamp(1.8rem, 8vw, 4rem);
     font-weight: 200;
-    letter-spacing: 0.5em;
+    letter-spacing: 0.4em;
     text-transform: uppercase;
     text-align: center;
 }
@@ -73,133 +68,74 @@ nav {
 .hero-subtitle {
     font-size: 0.8rem;
     color: #a1a1aa;
-    letter-spacing: 0.7em;
+    letter-spacing: 0.6em;
     text-transform: uppercase;
     text-align: center;
     margin-top: 15px;
 }
 
 section {
-    padding: 200px 10%;
+    padding: 100px 10%;
     width: 100%;
     display: flex;
     justify-content: center;
+    background-color: #09090b;
 }
 
 .container {
-    max-width: 850px;
-    width: 100%;
+    max-width: 800px;
 }
 
 h2 {
     font-size: 1.8rem;
     font-weight: 200;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     border-bottom: 1px solid #27272a;
-    padding-bottom: 20px;
-    text-transform: uppercase;
+    padding-bottom: 15px;
     letter-spacing: 0.2em;
 }
 
 p {
     color: #a1a1aa;
-    line-height: 2;
+    line-height: 1.8;
     font-size: 1.1rem;
-    margin-bottom: 35px;
-    font-weight: 300;
+    margin-bottom: 25px;
 }
-
-
-.reveal-item {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-/* Bölüm aktif olduğunda içindeki elemanlar sırayla gelsin */
-.reveal.active .reveal-item:nth-child(1) { transition-delay: 0.1s; opacity: 1; transform: translateY(0); }
-.reveal.active .reveal-item:nth-child(2) { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
-.reveal.active .reveal-item:nth-child(3) { transition-delay: 0.5s; opacity: 1; transform: translateY(0); }
-.reveal.active .reveal-item:nth-child(4) { transition-delay: 0.7s; opacity: 1; transform: translateY(0); }
 
 footer {
     text-align: center;
-    padding: 80px 10%;
+    padding: 60px;
+    background-color: #09090b;
     color: #3f3f46;
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
+    font-size: 0.7rem;
 }
 
-.scroll-icon {
-    position: absolute;
-    bottom: 50px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 26px;
-    height: 44px;
-    border: 1px solid rgba(255,255,255,0.2);
-    border-radius: 20px;
+@media screen and (max-width: 600px) {
+    nav {
+        flex-direction: column;
+        padding: 20px 0;
+        gap: 10px;
+        position: absolute;
+    }
+
+    .nav-links {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-links a {
+        font-size: 9px;
+    }
+
+    .hero {
+        background-size: 170% !important;
+        background-position: center 15% !important;
+    }
+
+    .hero-title {
+        font-size: 1.4rem;
+        letter-spacing: 0.2em;
+        padding: 0 10px;
+    }
 }
-
-.scroll-icon::before {
-    content: '';
-    width: 3px;
-    height: 7px;
-    background: white;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 10px;
-    border-radius: 2px;
-    animation: scrollMove 2.5s infinite;
-}
-
-@keyframes scrollMove {
-    0% { opacity: 0; top: 10px; }
-    20% { opacity: 1; }
-    80% { opacity: 0; top: 28px; }
-    100% { opacity: 0; }
-}
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gülcesu Kahraman | Industrıal Desıgner</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400&display=swap" rel="stylesheet">
-</head>
-<body>
-
-    <nav>
-        <div class="logo">GK</div>
-        <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="experience.html">Experıence</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-
-    <section class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">GÜLCESU KAHRAMAN</h1>
-            <p class="hero-subtitle">Industrıal Desıgner</p>
-        </div>
-    </section>
-
-    <section id="about">
-        <div class="container">
-            <h2>ABOUT</h2>
-            <p>I graduated from the Department of Industrial Design at Yeditepe University. Through internships at Baykar Technology and GEMAK Group, I gained experience in product development, manufacturing processes, and production-oriented design.</p>
-            <p>Following this, I worked as a creative director in the textile industry, acquiring knowledge in website design and e-commerce. Digital design and branding projects further strengthened my multifaceted perspective.</p>
-            <p>With my creative and analytical approach, I aim to develop innovative products that combine technology, functionality, and aesthetics, and to create value within a dynamic team.</p>
-        </div>
-    </section>
-
-    <section id="contact">
-        <div class="container">
-            <h2>Contact</h2>
-            <p>Let's collaborate on your next design project.</p>
-            <p style="color: white;">gulcesukahraman@example.com</p>
