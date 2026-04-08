@@ -6,16 +6,12 @@
 
 body, html {
     width: 100%;
-    min-height: 100vh;
     background-color: #09090b;
     color: white;
     font-family: 'Inter', sans-serif;
     scroll-behavior: smooth;
-    overflow-x: hidden;
-    overflow-y: auto;
 }
 
-/* NAVİGASYON */
 nav {
     position: fixed;
     top: 0;
@@ -51,19 +47,28 @@ nav {
 
 .nav-links a:hover { color: white; }
 
-/* HERO SECTION */
-.hero {
-    position: relative;
+section {
+    position: sticky;
+    top: 0;
     height: 100vh;
+    width: 100%;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: #09090b;
+    overflow: hidden;
+}
+
+.hero {
+    z-index: 1;
     background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('hero.jpeg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
 }
+
+#about { z-index: 2; border-top: 1px solid rgba(255,255,255,0.05); }
+#contact { z-index: 3; border-top: 1px solid rgba(255,255,255,0.05); }
 
 .hero-title {
     font-size: clamp(2rem, 8vw, 4.5rem);
@@ -82,49 +87,40 @@ nav {
     text-align: center;
 }
 
-/* SECTIONS */
-section {
-    position: relative;
-    padding: 140px 10%;
-    width: 100%;
-}
-
 .container {
-    max-width: 900px;
-    margin: 0 auto;
+    max-width: 800px;
+    width: 100%;
+    padding: 0 10%;
 }
 
 h2 {
     font-size: 2rem;
     font-weight: 200;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     border-bottom: 1px solid #27272a;
-    padding-bottom: 20px;
+    padding-bottom: 15px;
     text-transform: uppercase;
     letter-spacing: 0.2em;
 }
 
 p {
-    color: #d1d5db;
-    line-height: 1.9;
+    color: #a1a1aa;
+    line-height: 1.8;
     font-size: 1.1rem;
-    margin-bottom: 30px;
-    font-weight: 300;
+    margin-bottom: 25px;
 }
 
-/* ANİMASYON */
 .reveal {
     opacity: 0;
-    transform: translateY(40px);
-    transition: all 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+    transform: translateY(30px) scale(0.98);
+    transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .reveal.active {
     opacity: 1 !important;
-    transform: translateY(0) !important;
+    transform: translateY(0) scale(1) !important;
 }
 
-/* MOUSE ICON */
 .scroll-icon {
     position: absolute;
     bottom: 40px;
