@@ -1,84 +1,26 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gülcesu Kahraman | Industrıal Desıgner</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400&display=swap" rel="stylesheet">
-</head>
-<body>
+/* Yazıların siyah ekranda takılı kalmaması için otomatik görünürlük */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    /* JS çalışmazsa bile yazıları 0.8 saniye sonra görünür yap */
+    transition: all 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
 
-    <nav>
-        <div class="logo">GK</div>
-        <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="experience.html">Experıence</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+.reveal.active {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">GÜLCESU KAHRAMAN</h1>
-            <p class="hero-subtitle">Industrıal Desıgner</p>
-        </div>
-        <div class="scroll-icon"></div>
-    </section>
-
-    <section id="about" class="reveal">
-        <div class="container">
-            <h2>ABOUT</h2>
-            <p style="margin-bottom: 25px;">
-                I graduated from the Department of Industrial Design at Yeditepe University. Through internships at Baykar Technology and GEMAK Group, I gained experience in product development, manufacturing processes, and production-oriented design. 
-            </p>
-            <p style="margin-bottom: 25px;">
-                Following this, I worked as a creative director in the textile industry, acquiring knowledge in website design and e-commerce. Digital design and branding projects further strengthened my multifaceted perspective.
-            </p>
-            <p>
-                With my creative and analytical approach, I aim to develop innovative products that combine technology, functionality, and aesthetics, and to create value within a dynamic team.
-            </p>
-        </div>
-    </section>
-
-    <section id="contact" class="reveal">
-        <div class="container">
-            <h2>Contact</h2>
-            <p>Let's collaborate on your next design project.</p>
-            <p style="margin-top: 10px; color: white;">gulcesukahraman@example.com</p> 
-        </div>
-    </section>
-
-    <footer style="text-align: center; padding: 40px; color: #52525b; font-size: 0.8rem; letter-spacing: 0.1em;">
-        &copy; 2026 GÜLCESU KAHRAMAN. ALL RIGHTS RESERVED.
-    </footer>
-
- <script>
-    const reveal = () => {
-        const reveals = document.querySelectorAll(".reveal");
-        reveals.forEach((el) => {
-            const windowHeight = window.innerHeight;
-            const elementTop = el.getBoundingClientRect().top;
-            const elementVisible = 100; // Yazı ekranın biraz içine girince başlar
-
-            if (elementTop < windowHeight - elementVisible) {
-                el.classList.add("active");
-            }
-        });
-    };
-
-    // Sayfa yüklendiğinde, kaydırıldığında ve boyutlandığında çalıştır
-    window.addEventListener("scroll", reveal);
-    window.addEventListener("load", reveal);
-    window.addEventListener("resize", reveal);
-
-    // İlk açılışta yazıları hemen kontrol et
-    reveal();
-</script>
-    
-</body>
-</html>
-</body>
-</html>
+/* Hero Parallax - Çağla Enginer Stili */
+.hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('hero.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Arka plan sabit kalır */
+}
