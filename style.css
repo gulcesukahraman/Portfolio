@@ -1,4 +1,4 @@
-/* 1. TEMEL SIFIRLAMA */
+/* TEMEL AYARLAR */
 * {
     margin: 0;
     padding: 0;
@@ -9,68 +9,147 @@ body, html {
     width: 100%;
     height: 100%;
     background-color: #09090b;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     color: white;
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
     overflow-x: hidden;
 }
 
-/* 2. ANA GİRİŞ (HERO) BÖLÜMÜ */
+/* NAVİGASYON (HOME, EXPERIENCE vs.) */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+}
+
+.logo {
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    font-size: 1.2rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #a1a1aa;
+    text-decoration: none;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+/* HERO SECTION */
 .hero {
     position: relative;
     height: 100vh;
     width: 100%;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* ARKA PLAN RESMİ BURADA - Adının hero.jpeg olduğundan emin ol */
     background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('hero.jpeg');
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
-}
-
-/* 3. İSİM VE BAŞLIK */
-.hero-content {
-    text-align: center;
-    padding: 0 20px;
+    background-attachment: fixed;
 }
 
 .hero-title {
-    font-size: clamp(1.5rem, 8vw, 4.5rem); 
+    font-size: clamp(2rem, 8vw, 5rem);
     font-weight: 200;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.3em;
     text-transform: uppercase;
-    margin-bottom: 0.5rem;
+    margin-bottom: 10px;
+    text-align: center;
 }
 
 .hero-subtitle {
-    font-size: clamp(0.8rem, 2vw, 1.2rem);
     color: #a1a1aa;
     letter-spacing: 0.4em;
     text-transform: uppercase;
-    font-weight: 300;
+    font-size: 1rem;
+    text-align: center;
 }
 
-/* 4. HAKKIMDA BÖLÜMÜ */
-.about {
-    padding: 80px 20px;
-    max-width: 800px;
-    margin: 0 auto;
+/* SCROLL ANİMASYONU (REVEAL) */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1.2s ease-out;
 }
 
-.about h2 {
-    font-size: 2rem;
-    font-weight: 300;
-    margin-bottom: 2rem;
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* GENEL BÖLÜM TASARIMI */
+section {
+    padding: 140px 10%;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    max-width: 900px;
+    width: 100%;
+}
+
+h2 {
+    font-size: 2.2rem;
+    font-weight: 200;
+    margin-bottom: 40px;
     border-bottom: 1px solid #27272a;
-    padding-bottom: 0.5rem;
+    padding-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
 }
 
-.about p {
-    font-size: 1.1rem;
+p {
+    color: #a1a1aa;
     line-height: 1.8;
-    color: #d4d4d8;
-    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
 }
+
+/* MOUSE SCROLL ICON */
+.scroll-icon {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 26px;
+    height: 44px;
+    border: 2px solid rgba(255,255,255,0.2);
+    border-radius: 20px;
+}
+
+.scroll-icon::before {
+    content: '';
+    width: 4px;
+    height: 8px;
+    background: white;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 10px;
+    border-radius: 2px;
+    animation: scrollMove 2s infinite;
+}
+
+@keyframes scrollMove {
+    0% { opacity: 1; top: 10px; }
+    100% { opacity: 0; top: 28px; }
 }
