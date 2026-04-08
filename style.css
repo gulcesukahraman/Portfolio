@@ -160,3 +160,45 @@ footer {
     80% { opacity: 0; top: 28px; }
     100% { opacity: 0; }
 }
+
+/* MOBİL DÜZENLEME */
+@media screen and (max-width: 768px) {
+    nav {
+        padding: 20px 5%;
+        flex-direction: column; /* Logo ve menüyü alt alta getirir */
+        gap: 15px;
+        background: rgba(9, 9, 11, 0.95); /* Mobilde okunurluk için arka planı koyulaştırdık */
+    }
+
+    .nav-links {
+        gap: 15px;
+        flex-wrap: wrap; /* Sığmayan linkleri bir alt satıra atar */
+        justify-content: center;
+    }
+
+    .nav-links a {
+        font-size: 0.7rem; /* Yazıları biraz küçülttük */
+        letter-spacing: 0.1em;
+    }
+
+    /* Hero bölümündeki yazıların mobilde çok büyük kalıp taşmasını önler */
+    .hero-title {
+        font-size: 1.8rem !important;
+        letter-spacing: 0.2em !important;
+        padding: 0 10px;
+    }
+
+    /* Mobilde her bölümün içindeki boşlukları rahatlatır */
+    section {
+        padding: 100px 5% !important;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+}
