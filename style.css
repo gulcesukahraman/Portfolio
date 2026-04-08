@@ -109,7 +109,7 @@ p {
     font-weight: 300;
 }
 
-/* ÇAĞLA ENGİNER STİLİ KADEMELİ GEÇİŞ (STAGGER) */
+
 .reveal-item {
     opacity: 0;
     transform: translateY(40px);
@@ -160,45 +160,49 @@ footer {
     80% { opacity: 0; top: 28px; }
     100% { opacity: 0; }
 }
-
-/* MOBİL DÜZENLEME */
+/* MOBİL ÇÖZÜM */
 @media screen and (max-width: 768px) {
+    /* 1. Menü Sıkışmasını Gider */
     nav {
-        padding: 20px 5%;
-        flex-direction: column; /* Logo ve menüyü alt alta getirir */
-        gap: 15px;
-        background: rgba(9, 9, 11, 0.95); /* Mobilde okunurluk için arka planı koyulaştırdık */
+        flex-direction: column;
+        padding: 15px 5%;
+        gap: 12px;
+        background: rgba(9, 9, 11, 0.98);
     }
 
     .nav-links {
-        gap: 15px;
-        flex-wrap: wrap; /* Sığmayan linkleri bir alt satıra atar */
+        gap: 10px;
+        flex-wrap: wrap;
         justify-content: center;
     }
 
     .nav-links a {
-        font-size: 0.7rem; /* Yazıları biraz küçülttük */
+        font-size: 0.6rem;
         letter-spacing: 0.1em;
     }
 
-    /* Hero bölümündeki yazıların mobilde çok büyük kalıp taşmasını önler */
-    .hero-title {
-        font-size: 1.8rem !important;
-        letter-spacing: 0.2em !important;
-        padding: 0 10px;
+    /* 2. Görseli ve Yazıyı Hizala */
+    .hero {
+        background-position: center 15%; /* Yüzü ortalamak için yukarı çektik */
+        background-attachment: scroll; /* Mobilde titremeyi engeller */
     }
 
-    /* Mobilde her bölümün içindeki boşlukları rahatlatır */
+    .hero-content {
+        padding-top: 60px; /* Yazıyı yüzün biraz altına indirir */
+    }
+
+    .hero-title {
+        font-size: 1.5rem !important;
+        letter-spacing: 0.25em !important;
+    }
+
+    .hero-subtitle {
+        font-size: 0.65rem;
+        letter-spacing: 0.3em;
+    }
+
+    /* 3. Genel Alanları Düzenle */
     section {
-        padding: 100px 5% !important;
-    }
-    
-    h2 {
-        font-size: 1.5rem;
-    }
-    
-    p {
-        font-size: 0.95rem;
-        line-height: 1.6;
+        padding: 80px 10% !important;
     }
 }
