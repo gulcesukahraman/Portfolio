@@ -4,33 +4,105 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gülcesu Kahraman | Industrial Designer</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400&display=swap" rel="stylesheet">
+    <style>
+        /* 1. TEMEL SIFIRLAMA */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            width: 100%;
+            height: 100%;
+            background-color: #09090b;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* 2. ANA GİRİŞ (HERO) BÖLÜMÜ */
+        .hero {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            /* ARKA PLAN RESMİ BURADA */
+            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('hero.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* 3. İSİM VE BAŞLIK */
+        .hero-content {
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero-title {
+            /* clamp(en_küçük, ekran_oranı, en_büyük) */
+            font-size: clamp(1.5rem, 8vw, 4.5rem); 
+            font-weight: 200;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(0.8rem, 2vw, 1.2rem);
+            color: #a1a1aa;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            font-weight: 300;
+        }
+
+        /* 4. HAKKIMDA BÖLÜMÜ (AŞAĞI KAYDIRINCA ÇIKAR) */
+        .about {
+            padding: 80px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about h2 {
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #27272a;
+            padding-bottom: 0.5rem;
+        }
+
+        .about p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #d4d4d8;
+            margin-bottom: 1.5rem;
+        }
+    </style>
 </head>
 <body>
 
-    <section class="hero-bg">
-        <div class="content">
+    <section class="hero">
+        <div class="hero-content">
             <h1 class="hero-title">GÜLCESU KAHRAMAN</h1>
             <p class="hero-subtitle">Industrial Designer</p>
         </div>
-
-        <div class="scroll-indicator">
-            <div class="mouse">
-                <div class="wheel"></div>
-            </div>
-        </div>
     </section>
 
-    <section class="about-section">
-        <div class="container">
-            <h2>About</h2>
-            <p>Industrial designer with a passion for creating innovative and functional designs...</p>
-        </div>
+    <section class="about">
+        <h2>About</h2>
+        <p>
+            Welcome to my portfolio. I am an industrial designer with a passion for creating
+            innovative and functional designs that blend aesthetics with practicality.
+        </p>
+        <p>
+            My work focuses on user-centered design principles and sustainable solutions, 
+            bringing ideas to life through a comprehensive understanding of the design process.
+        </p>
     </section>
-
-</body>
-</html>
 
 </body>
 </html>
